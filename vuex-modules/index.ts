@@ -1,0 +1,1 @@
+export * from './AlertModule.module';

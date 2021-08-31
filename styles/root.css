@@ -1,0 +1,38 @@
+:root {
+  --headerHeight: 90px;
+  --footerHeight: 90px;
+}
+
+* {
+  outline: none !important;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.ellipsis {
+  white-space: no-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-widh: 100%;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.ErrorInput {
+  font-weight: semi-bold;
+  color: var(--redError);
+}
