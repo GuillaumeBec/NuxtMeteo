@@ -48,7 +48,7 @@ export const [WeatherModule, useWeatherModule] = createVuexModule({
       try {
         axios
           .get(
-            `http://api.openweathermap.org/data/2.5/weather?q=${searchValue}&?&APPID=${mainKey}&lang=fr&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&?&APPID=${mainKey}&lang=fr&units=metric`
           )
           .then((results) => {
             console.log('update');
@@ -60,7 +60,7 @@ export const [WeatherModule, useWeatherModule] = createVuexModule({
       } finally {
         await axios
           .get(
-            `http://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&?&APPID=${mainKey}&lang=fr&units=metric`
+            `https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&?&APPID=${mainKey}&lang=fr&units=metric`
           )
           .then((results) => {
             WeatherModule.updateState({ forecasts: results.data.list });
