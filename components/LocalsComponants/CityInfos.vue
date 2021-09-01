@@ -48,27 +48,36 @@ export default defineComponent({
     city: { required: true, type: Object as PropType<City> },
   },
   setup(props) {
-    //? Temperature
+    //? Récupération de l'unité de l'utilisateur
     const {
       state: { unity },
     } = useWeatherModule();
 
+    //? Temperature (Celcius ou Fhn selon le choix de l'utilisateur)
     const treatedTemperature = (value: number) => {
       return unity.value === 'F'
         ? `${celciusToFahreineit(value).toFixed(2)} F°`
         : `${value.toFixed(2)} C°`;
     };
 
-    //? Wind
+    //? Wind (km heure ou miles selon choix de l'utilisateur)
     const treatedWind = computed(() => {
       if (props.city.wind) {
-        return {
-          windSpeed: `${meterBySecondsToKmByHour(props.city.wind.speed).toFixed(2)} Km/h`,
-          windGust: props.city.wind.gust
-            ? `${meterBySecondsToKmByHour(props.city.wind.gust).toFixed(2)} Km/h`
-            : 'Non disponible',
-          deg: props.city.wind.deg,
-        };
+        if (unity.value === 'F') {
+          return {
+            windSpeed: `${meterBySecondsToKmByHour(props.city.wind.speed).toFixed(2)} MpH`,
+            windGust: props.city.wind.gust
+              ? `${meterBySecondsToKmByHour(props.city.wind.gust).toFixed(2)} MpH`
+              : 'Non disponible',
+          };
+        } else {
+          return {
+            windSpeed: `${meterBySecondsToKmByHour(props.city.wind.speed * 1.6).toFixed(2)} Km/h`,
+            windGust: props.city.wind.gust
+              ? `${meterBySecondsToKmByHour(props.city.wind.gust * 1.6).toFixed(2)} Km/h`
+              : 'Non disponible',
+          };
+        }
       }
     });
 
