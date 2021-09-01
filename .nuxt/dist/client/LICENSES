@@ -1,29 +1,4 @@
 /*!
-  * vue-router v3.5.2
-  * (c) 2021 Evan You
-  * @license MIT
-  */
-
-/*!
- * Vue.js v2.6.12
- * (c) 2014-2020 Evan You
- * Released under the MIT License.
- */
-
-/*!
- * vuex v3.6.2
- * (c) 2021 Evan You
- * @license MIT
- */
-
-
-//! Graph 1 - Donught
-
-
-//! - Handle Search
-
-
-/*!
  * cookie
  * Copyright(c) 2012-2014 Roman Shtylman
  * Copyright(c) 2015 Douglas Christopher Wilson
@@ -67,12 +42,26 @@ PERFORMANCE OF THIS SOFTWARE.
  */
 
 
+//! - Handle Search
+
+
 //! Handle SelectedStyle and available changes
 
 
 /*!
- * Chart.js v3.4.1
- * https://www.chartjs.org
- * (c) 2021 Chart.js Contributors
- * Released under the MIT License
+  * vue-router v3.5.2
+  * (c) 2021 Evan You
+  * @license MIT
+  */
+
+/*!
+ * Vue.js v2.6.12
+ * (c) 2014-2020 Evan You
+ * Released under the MIT License.
+ */
+
+/*!
+ * vuex v3.6.2
+ * (c) 2021 Evan You
+ * @license MIT
  */

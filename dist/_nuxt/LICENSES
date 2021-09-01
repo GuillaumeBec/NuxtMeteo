@@ -1,15 +1,4 @@
-/*!
- * Chart.js v3.4.1
- * https://www.chartjs.org
- * (c) 2021 Chart.js Contributors
- * Released under the MIT License
- */
-
-
 //! - Handle Search
-
-
-//! Graph 1 - Donught
 
 
 /*!
@@ -56,9 +45,6 @@ PERFORMANCE OF THIS SOFTWARE.
  */
 
 
-//! Handle SelectedStyle and available changes
-
-
 /*!
   * vue-router v3.5.2
   * (c) 2021 Evan You
@@ -76,3 +62,6 @@ PERFORMANCE OF THIS SOFTWARE.
  * (c) 2021 Evan You
  * @license MIT
  */
+
+
+//! Handle SelectedStyle and available changes
