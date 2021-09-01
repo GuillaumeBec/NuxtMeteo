@@ -1,0 +1,39 @@
+[
+  {
+    "name": "client",
+    "path": "/client",
+    "component": "/Users/guillaulmebecard/Desktop/Nuxt-Meteo/pages/client.vue",
+    "chunkName": "pages/client",
+    "children": [
+      {
+        "name": "client-charts",
+        "path": "charts",
+        "component": "/Users/guillaulmebecard/Desktop/Nuxt-Meteo/pages/client/charts.vue",
+        "chunkName": "pages/client/charts",
+        "_name": "_1586b526"
+      },
+      {
+        "name": "client-download",
+        "path": "download",
+        "component": "/Users/guillaulmebecard/Desktop/Nuxt-Meteo/pages/client/download.vue",
+        "chunkName": "pages/client/download",
+        "_name": "_b9be8fc0"
+      },
+      {
+        "name": "client-edit",
+        "path": "edit",
+        "component": "/Users/guillaulmebecard/Desktop/Nuxt-Meteo/pages/client/edit.vue",
+        "chunkName": "pages/client/edit",
+        "_name": "_d7e966bc"
+      }
+    ],
+    "_name": "_431d7427"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/guillaulmebecard/Desktop/Nuxt-Meteo/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_2aaffea6"
+  }
+]
