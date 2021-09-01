@@ -4,10 +4,6 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _431d7427 = () => interopDefault(import('../pages/client.vue' /* webpackChunkName: "pages/client" */))
-const _1586b526 = () => interopDefault(import('../pages/client/charts.vue' /* webpackChunkName: "pages/client/charts" */))
-const _b9be8fc0 = () => interopDefault(import('../pages/client/download.vue' /* webpackChunkName: "pages/client/download" */))
-const _d7e966bc = () => interopDefault(import('../pages/client/edit.vue' /* webpackChunkName: "pages/client/edit" */))
 const _2aaffea6 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -22,23 +18,6 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/client",
-    component: _431d7427,
-    name: "client",
-    children: [{
-      path: "charts",
-      component: _1586b526,
-      name: "client-charts"
-    }, {
-      path: "download",
-      component: _b9be8fc0,
-      name: "client-download"
-    }, {
-      path: "edit",
-      component: _d7e966bc,
-      name: "client-edit"
-    }]
-  }, {
     path: "/",
     component: _2aaffea6,
     name: "index"

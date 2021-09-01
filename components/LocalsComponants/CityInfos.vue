@@ -11,7 +11,9 @@
       <span class="text-xs">{{ treatedWind.windGust }}</span>
     </div>
     <div class="flex flex-col items-center justify-between -md:h-[75%]">
-      <h1 class="md:text-lg md:mb-3 text-3xl uppercase">- {{ city.name }} -</h1>
+      <h1 class="md:text-lg md:mb-3 text-3xl uppercase -md:max-w-[75%] -md:text-center"
+        >- {{ city.name }} -</h1
+      >
       <div class="flex-nowrap flex flex-row items-center">
         <div class="w-28 flex flex-row items-center justify-start">
           <SvgIcon src="heat" :size="24" />
