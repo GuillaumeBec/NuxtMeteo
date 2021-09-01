@@ -12,13 +12,10 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api';
-import NavbarElement from './Navbar/NavbarElement.vue';
-import UserPopup from './UserPopup.vue';
 import { string } from 'vue-types';
 
 export default defineComponent({
   name: 'HeaderComponent',
-  components: { NavbarElement, UserPopup },
   props: {
     title: string(),
   },
