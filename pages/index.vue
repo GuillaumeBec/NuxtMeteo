@@ -48,7 +48,7 @@
         </div>
         <div v-else>
           <p class="md:text-lg w-full h-full text-4xl italic text-center text-gray-500">
-            Chercher une ville à travers la monde
+            Chercher une ville à travers le monde
           </p>
         </div>
       </div>
@@ -60,7 +60,7 @@
 import { defineComponent, ref, computed } from '@nuxtjs/composition-api';
 import { SearchBar, Thumbnail, CityInfos } from '~/components';
 import { City, Forecast } from '../models';
-import { useWeatherModule, WeatherModule } from '~/vuex-modules/Weather.module';
+import { useWeatherModule } from '~/vuex-modules/Weather.module';
 
 export default defineComponent({
   name: 'Meteo',
@@ -68,7 +68,8 @@ export default defineComponent({
   components: { SearchBar, Thumbnail, CityInfos },
   setup() {
     const loading = ref<boolean>(false);
-    //! - Handle Search
+
+    //? Call le module vuex à chaque event input du composant searchBar
 
     const {
       actions: { getWeather },
@@ -81,6 +82,8 @@ export default defineComponent({
         .catch((e) => console.log)
         .finally(() => (loading.value = false));
     }
+
+    //? Recuperation des données dynamiques dans le module
 
     const city = computed((): City | null => currentCity.value);
     const cityForecasts = computed((): Array<Forecast> | null => forecasts.value);

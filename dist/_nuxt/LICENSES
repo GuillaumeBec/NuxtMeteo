@@ -45,6 +45,9 @@ PERFORMANCE OF THIS SOFTWARE.
  */
 
 
+//! Handle SelectedStyle and available changes
+
+
 /*!
   * vue-router v3.5.2
   * (c) 2021 Evan You
@@ -62,6 +65,3 @@ PERFORMANCE OF THIS SOFTWARE.
  * (c) 2021 Evan You
  * @license MIT
  */
-
-
-//! Handle SelectedStyle and available changes

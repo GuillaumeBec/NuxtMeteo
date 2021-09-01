@@ -51,7 +51,6 @@ export const [WeatherModule, useWeatherModule] = createVuexModule({
             `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&?&APPID=${mainKey}&lang=fr&units=metric`
           )
           .then((results) => {
-            console.log('update');
             WeatherModule.updateState({ currentCity: results.data });
           })
           .catch((e) => {

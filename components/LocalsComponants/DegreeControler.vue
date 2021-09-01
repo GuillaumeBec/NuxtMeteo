@@ -19,7 +19,7 @@ export default defineComponent({
     degree: { type: String as PropType<degreesUnity>, required: true },
   },
   setup(props) {
-    //! Handle SelectedStyle and available changes
+    //? Changement de style selon sélection utilisateur
     const {
       state: { unity },
       mutations: { updateCurrentDegreeUnity },
