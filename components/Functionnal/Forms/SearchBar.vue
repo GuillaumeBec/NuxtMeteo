@@ -6,7 +6,7 @@
       <SvgIcon v-if="hasIcon" src="actions/search" :size="24" @click.prevent="updateValue(value)" />
       <input
         type="text"
-        class="p-2"
+        class="p-2 max-w-[80%]"
         :placeholder="placeholder"
         :value="value"
         @input="updateValue($event.target.value)"
@@ -16,12 +16,6 @@
         @focus="open()"
       />
     </div>
-    <!-- <keep-alive>
-      <div v-if="results && results.length > 0" class="flex flex-col overflow-y-scroll">
-       TODO faire un slot de result 
-    </div>
-    </keep-alive> 
-    -->
   </div>
 </template>
 

@@ -6,6 +6,7 @@ module.exports = {
   mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   theme: {
+    shadow: 'var(--shadow)',
     debugScreens: {
       position: ['bottom', 'left'],
     },
@@ -13,13 +14,13 @@ module.exports = {
       center: true,
       padding: '1.5rem',
     },
-    screen: {
+    screens: {
       xl: { max: '1279px' },
       lg: { max: '1023px' },
       md: { max: '767px' },
       sm: { max: '639px' },
       xs: { max: '400px' },
-      '-xs': { mi: '400px' },
+      '-xs': { min: '400px' },
       '-sm': { min: '639px' },
       '-md': { min: '767px' },
       '-lg': { min: '1023px' },
@@ -69,8 +70,14 @@ module.exports = {
           96: '24rem',
           104: '26rem',
         },
+        boxShadow: {
+          default: '0 0 10px var(--shadowColor)',
+          top: '0 -4px 10px var(--shadowColor)',
+          bottom: '0 4px 10px var(--shadowColor)',
+        },
         inset: {
           header: 'var(--headerHeight)',
+          footer: 'var(--footerHeight)',
         },
       },
       important: true,
@@ -79,5 +86,6 @@ module.exports = {
   variants: {
     extend: {},
   },
+
   // plugins: [require('tailwindcss-debug-screens')],
 };

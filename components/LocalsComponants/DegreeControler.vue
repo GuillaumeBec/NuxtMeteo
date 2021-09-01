@@ -1,10 +1,10 @@
 <template>
   <div
-    class=" Container / flex-nowrap flex flex-row items-center justify-center rounded-md cursor-pointer"
+    class=" Container / flex-nowrap md:rounded-2xl flex flex-row items-center justify-center rounded-md cursor-pointer"
     :class="{ isSelected: isSelected }"
     @click.stop="updateDegree"
   >
-    <span class="p-2">{{ degree }} °</span>
+    <span class="lg:text-xs p-2">{{ degree }} °</span>
   </div>
 </template>
 
@@ -48,5 +48,6 @@ export default defineComponent({
   font-weight: bold;
   background-color: rgb(70, 157, 197);
   color: white;
+  border-color: #ffffff;
 }
 </style>

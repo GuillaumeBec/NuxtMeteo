@@ -1,5 +1,5 @@
 import { createVuexModule } from 'vuex-typed-modules';
-import { City, degreesUnity, Temperatures, Wind } from '~/models';
+import { City, degreesUnity, Forecast, Temperatures, Wind } from '~/models';
 import { mainKey } from '~/api/keys';
 import axios from 'axios';
 export interface IWeatherState {
@@ -7,7 +7,7 @@ export interface IWeatherState {
   unity: degreesUnity;
   temperatures: Temperatures | null;
   wind: Wind | null;
-  forecasts: Object[] | null;
+  forecasts: Forecast[] | null;
 }
 
 const state: IWeatherState = {

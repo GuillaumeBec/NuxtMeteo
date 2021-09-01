@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex flex-col items-center justify-between w-full h-full">
-    <div class="absolute top-0 left-0 flex flex-row justify-between w-1/5">
+    <div class="md:bottom-0 -md:top-0 md:w-1/4 absolute left-0 flex flex-row justify-between w-1/5">
       <DegreeControler degree="F" />
       <DegreeControler degree="C" />
     </div>
@@ -10,16 +10,20 @@
       <SvgIcon src="gust" :size="40" />
       <span class="text-xs">{{ treatedWind.windGust }}</span>
     </div>
-    <div class="flex flex-col items-center justify-between h-[75%]">
-      <h1 class="text-3xl uppercase">- {{ city.name }} -</h1>
+    <div class="flex flex-col items-center justify-between -md:h-[75%]">
+      <h1 class="md:text-lg md:mb-3 text-3xl uppercase">- {{ city.name }} -</h1>
       <div class="flex-nowrap flex flex-row items-center">
         <div class="w-28 flex flex-row items-center justify-start">
           <SvgIcon src="heat" :size="24" />
-          <h2 class="ml-2 font-bold text-red-300">{{ treatedTemperature(city.main.temp_max) }}</h2>
+          <span class="md:text-sm ml-2 font-bold text-red-300">{{
+            treatedTemperature(city.main.temp_max)
+          }}</span>
         </div>
         <div class="w-28 flex flex-row items-center justify-start">
           <SvgIcon src="cold" :size="24" />
-          <h2 class="Cold / ml-2 italic">{{ treatedTemperature(city.main.temp_min) }}</h2>
+          <span class="Cold / md:text-sm ml-2 italic">{{
+            treatedTemperature(city.main.temp_min)
+          }}</span>
         </div>
       </div>
       <img :src="`http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`" />

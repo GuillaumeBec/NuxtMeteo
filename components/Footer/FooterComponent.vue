@@ -1,20 +1,16 @@
 <template>
-  <footer class="absolute bottom-0 flex justify-center w-full px-3">
+  <footer class="-md:py-2 absolute bottom-0 flex justify-center w-full px-3">
     <div
-      class="
-        flex flex-row
-        items-center
-        justify-between
-        text-lg
-        font-light
-        text-white
-        md:min-w-[450px]
-      "
+      class=" sm:w-full flex flex-row items-center justify-between w-3/4 text-lg font-light text-white"
     >
-      <SvgIcon src="cute-sun" :width="50" />
-      <h1 class="py-2">{{ title || 'Nuxt-Starter' }}</h1>
-      <span class="text-base"> 2021 - Guillaume Becard</span>
-      <SvgIcon src="cute-cloud" :width="50" />
+      <div class="flex flex-row items-center w-full">
+        <SvgIcon src="cute-sun" :width="50" />
+        <h1 class="sm:text-xs py-2 text-base">{{ title || 'Nuxt-Starter' }}</h1>
+      </div>
+      <div class="flex flex-row items-center justify-end w-full">
+        <span class="sm:text-xs sm:text-center mr-2 text-base"> 2021 - Guillaume Becard</span>
+        <SvgIcon src="cute-cloud" :width="50" />
+      </div>
     </div>
   </footer>
 </template>
@@ -34,6 +30,10 @@ export default defineComponent({
 </script>
 <style lang="postcss" scoped>
 footer {
+  height: var(--footerHeight);
   background-color: var(--mainColor);
+  @media (max-width: 767px) {
+    height: 50px !important;
+  }
 }
 </style>

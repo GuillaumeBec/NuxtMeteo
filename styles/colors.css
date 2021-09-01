@@ -37,8 +37,9 @@
   --orange: #fc6e51;
   --orange2: #e9573f;
   --shadowColor: rgb(255, 255, 255);
-  --shadow: 0 8px 24px var(--shadowColor) !important;
 
+  --shadowColor: rgba(255, 255, 255, 0.1);
+  --shadow: 0 8px 24px var(--shadowColor) !important;
   --w255: rgb(255, 255, 255);
   --w250: rgb(250, 250, 250);
   --w245: rgb(245, 245, 245);

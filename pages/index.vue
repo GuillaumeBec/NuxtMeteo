@@ -1,22 +1,55 @@
 <template>
-  <div class="flex flex-row flex-wrap items-center justify-center w-full h-full">
-    <div class="flex flex-row justify-between w-3/4">
-      <div class="flex flex-col">
+  <div class="sm:items-start flex flex-row items-center justify-center w-full h-full">
+    <div class="md:w-full flex flex-row flex-wrap justify-between w-5/6">
+      <div class="md:w-full md:mb-2 -md:mr-3 flex flex-col w-[30%]">
         <SearchBar @updateValue="checkValue" />
-        <div v-if="cityForecasts" class="flex flex-col mt-5">
-          <span class="text-sm italic text-gray-400"> prévisions jours suivants </span>
-          <div class="flex flex-col h-[290px] my-3 overflow-y-scroll">
-            <Thumbnail v-for="(forecast, index) in cityForecasts" :forecast="forecast" />
+        <div v-if="cityForecasts" class="md:my-2 flex flex-col mt-5">
+          <span class="text-sm italic text-center text-gray-400"> prévisions jours suivants </span>
+          <div
+            class="
+              ScrollBar
+              shadow-lg
+              rounded-lg
+              px-2
+              flex flex-col
+              -md:h-[290px]
+              my-3
+              md:my-1
+              overflow-y-scroll
+              md:max-h-[290px]
+              sm:max-h-[200px]
+            "
+          >
+            <Thumbnail
+              v-for="(forecast, index) in cityForecasts"
+              :forecast="forecast"
+              :key="index"
+            />
           </div>
         </div>
       </div>
-      <div class="rounded-2xl flex items-center justify-center w-2/3 p-6 border-2 h-[400px]">
+      <div
+        class="
+          rounded-2xl
+          flex
+          items-center
+          justify-center
+          w-2/3
+          md:w-full
+          -md:p-6
+          p-1
+          border-2
+          -md:h-[400px]
+        "
+      >
         <CityInfos v-if="city" :city.sync="city" />
         <div v-else-if="loading" class="flex items-center justify-center w-[33%] h-[46%]">
           <Spinner />
         </div>
         <div v-else>
-          <p class="w-full h-full text-4xl italic text-gray-500"> Chercher quelque chose </p>
+          <p class="md:text-lg w-full h-full text-4xl italic text-center text-gray-500">
+            Chercher une ville à travers la monde
+          </p>
         </div>
       </div>
     </div>
@@ -26,7 +59,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from '@nuxtjs/composition-api';
 import { SearchBar, Thumbnail, CityInfos } from '~/components';
-import { City } from '../models';
+import { City, Forecast } from '../models';
 import { useWeatherModule, WeatherModule } from '~/vuex-modules/Weather.module';
 
 export default defineComponent({
@@ -50,8 +83,13 @@ export default defineComponent({
     }
 
     const city = computed((): City | null => currentCity.value);
-    const cityForecasts = computed((): Object | null => forecasts.value);
+    const cityForecasts = computed((): Array<Forecast> | null => forecasts.value);
     return { loading, checkValue, city, cityForecasts };
   },
 });
 </script>
+<style lang="postcss" scoped>
+.Forecasts {
+  box-shadow: 0 0 5px inset rgba(0, 0, 0, 0.1);
+}
+</style>
