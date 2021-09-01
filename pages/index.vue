@@ -3,18 +3,20 @@
     <div class="flex flex-row justify-between w-3/4">
       <div class="flex flex-col">
         <SearchBar @updateValue="checkValue" />
-        <div class="flex flex-col mt-5">
-          <Thumbnail />
+        <div v-if="cityForecasts" class="flex flex-col mt-5">
+          <span class="text-sm italic text-gray-400"> prévisions jours suivants </span>
+          <div class="flex flex-col h-[290px] my-3 overflow-y-scroll">
+            <Thumbnail v-for="(forecast, index) in cityForecasts" :forecast="forecast" />
+          </div>
         </div>
       </div>
-      <div class="rounded-2xl flex items-center justify-center w-1/2 p-6 border-2">
-        <CityInfos v-if="city" :city="city" />
-        <div v-else-if="loading" class="flex items-center justify-center w-[75%] h-[75%]">
+      <div class="rounded-2xl flex items-center justify-center w-2/3 p-6 border-2 h-[400px]">
+        <CityInfos v-if="city" :city.sync="city" />
+        <div v-else-if="loading" class="flex items-center justify-center w-[33%] h-[46%]">
           <Spinner />
         </div>
-
         <div v-else>
-          <h1 class="w-full h-full italic text-gray-500"> Chercher quelque chose </h1>
+          <p class="w-full h-full text-4xl italic text-gray-500"> Chercher quelque chose </p>
         </div>
       </div>
     </div>
@@ -22,40 +24,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api';
+import { defineComponent, ref, computed } from '@nuxtjs/composition-api';
 import { SearchBar, Thumbnail, CityInfos } from '~/components';
-import axios from 'axios';
 import { City } from '../models';
-import { mainKey } from '../api/keys';
-import { WeatherModule } from '~/vuex-modules/Weather.module';
+import { useWeatherModule, WeatherModule } from '~/vuex-modules/Weather.module';
+
 export default defineComponent({
   name: 'Meteo',
   head: { title: 'Nuxt-Meteo' },
   components: { SearchBar, Thumbnail, CityInfos },
-  props: {},
-
   setup() {
     const loading = ref<boolean>(false);
+    //! - Handle Search
 
-    // - Handle Search
-    const city = ref<City>();
+    const {
+      actions: { getWeather },
+      state: { currentCity, forecasts },
+    } = useWeatherModule();
 
     async function checkValue(newValue: string) {
       loading.value = true;
-      await axios
-        .get(
-          `http://api.openweathermap.org/data/2.5/weather?q=${newValue}&?&APPID=${mainKey}&lang=fr`
-        )
-        .then((results) => {
-          city.value = results.data;
-          WeatherModule.updateState({ currentCity: results.data });
-        })
-        .catch((e) => console.log(e))
+      await getWeather(newValue)
+        .catch((e) => console.log)
         .finally(() => (loading.value = false));
-      console.log(city.value);
     }
 
-    return { loading, checkValue, city };
+    const city = computed((): City | null => currentCity.value);
+    const cityForecasts = computed((): Object | null => forecasts.value);
+    return { loading, checkValue, city, cityForecasts };
   },
 });
 </script>

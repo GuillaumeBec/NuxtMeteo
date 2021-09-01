@@ -3,7 +3,7 @@
     <AlertContainer />
     <div>
       <HeaderComponent title="Nuxt-Météo" />
-      <div class="relative min-h-screen px-3">
+      <div class="relative w-full min-h-screen px-3">
         <div id="RootView" class="w-full h-screen max-w-full">
           <Nuxt />
         </div>

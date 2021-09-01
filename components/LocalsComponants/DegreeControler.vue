@@ -1,7 +1,7 @@
 <template>
   <div
-    class="Container / flex items-center justify-center rounded-md cursor-pointer"
-    :class="{ isSelected }"
+    class=" Container / flex-nowrap flex flex-row items-center justify-center rounded-md cursor-pointer"
+    :class="{ isSelected: isSelected }"
     @click.stop="updateDegree"
   >
     <span class="p-2">{{ degree }} °</span>
@@ -9,11 +9,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from '@nuxtjs/composition-api';
+import { defineComponent, PropType, computed } from '@nuxtjs/composition-api';
 import { degreesUnity } from '~/models';
-import { bool } from 'vue-types';
-import { computed } from '@vue/runtime-core';
-import { WeatherModule } from '~/vuex-modules/Weather.module';
+import { WeatherModule, useWeatherModule } from '~/vuex-modules';
 
 export default defineComponent({
   name: 'DegreeControler',
@@ -22,11 +20,16 @@ export default defineComponent({
   },
   setup(props) {
     //! Handle SelectedStyle and available changes
-    const isSelected = computed<boolean>(() => props.degree === WeatherModule.state.degreesUnity);
+    const {
+      state: { unity },
+      mutations: { updateCurrentDegreeUnity },
+    } = useWeatherModule();
+
+    const isSelected = computed(() => props.degree === unity.value);
 
     const updateDegree = () => {
       if (!isSelected.value) {
-        WeatherModule.mutations.updateCurrentDegreeUnity(props.degree);
+        updateCurrentDegreeUnity(props.degree);
       }
     };
 
@@ -41,7 +44,7 @@ export default defineComponent({
   border-color: rgba(209, 213, 219, var(--tw-border-opacity));
 }
 
-.selected {
+.isSelected {
   font-weight: bold;
   background-color: rgb(70, 157, 197);
   color: white;

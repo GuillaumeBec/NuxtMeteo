@@ -1,5 +1,11 @@
 export type degreesUnity = 'F' | 'C';
 
+export interface Temperatures {
+  min: number;
+  max: number;
+  feeled: number;
+}
+
 interface Coordonates {
   lat: number;
   lon: number;
@@ -20,7 +26,7 @@ interface Main {
   grnd_level: number;
 }
 
-interface Wind {
+export interface Wind {
   deg: number;
   gust: number;
   speed: number;
@@ -57,4 +63,17 @@ export interface City {
   name: string;
   cod: number;
   visibility?: number;
+}
+
+export interface Forecast {
+  clouds: Clouds;
+  dt: number;
+  dt_txt: string;
+  main: Main;
+  pop: number;
+  rain: Object;
+  sys: System;
+  visibility: number;
+  weather: Array<Weather>;
+  wind: Wind;
 }

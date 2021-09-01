@@ -1,5 +1,7 @@
 <template>
-  <header class="flex-nowrap fixed top-0 flex flex-row items-center justify-between w-full px-3">
+  <header
+    class="flex-nowrap lg:pr-12 fixed top-0 flex flex-row items-center justify-between w-full px-3"
+  >
     <div
       class=" lg:text-2xl flex flex-row items-center justify-between h-full ml-12 text-4xl font-semibold"
     >

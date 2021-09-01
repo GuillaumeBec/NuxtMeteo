@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex items-center justify-center">
+  <div class="relative flex items-center justify-center w-full h-full">
     <div class="loading flex items-center justify-center h-full" :class="theme"> </div>
   </div>
 </template>
@@ -10,7 +10,7 @@ import { string } from 'vue-types';
 export default defineComponent({
   name: 'Spinner',
   props: {
-    theme: string().def('white'),
+    theme: string().def('main'),
   },
   setup(props) {
     return {};
@@ -21,10 +21,10 @@ export default defineComponent({
 .loading {
   color: transparent;
   content: '';
-  width: 25px;
-  height: 25px;
+  width: 100%;
+  height: 100%;
   border: 5px solid;
-  border-radius: 50%;
+  border-radius: 999999%;
   transform: rotate(0.16turn);
   animation: loading 1s ease infinite;
 }
@@ -47,5 +47,10 @@ export default defineComponent({
 .black {
   border-color: rgba(255, 255, 255, 0.5);
   border-top-color: rgb(24, 0, 0);
+}
+
+.main {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  border-top-color: var(--mainColor) !important;
 }
 </style>
