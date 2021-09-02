@@ -42,6 +42,8 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
   Communication API : Axios : https://axios.nuxtjs.org/
   API Météo : OpenWeather : https://openweathermap.org/api
 
+* déploiement : https://vercel.com/docs
+
 ## Commentaires dans le code
 
 Les annotations de code sont trouvables avec la mention "//?"
