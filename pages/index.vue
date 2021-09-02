@@ -66,7 +66,7 @@ export default defineComponent({
   head: { title: 'Nuxt-Meteo' },
   components: { SearchBar, Thumbnail, CityInfos },
   setup() {
-    const loading = ref<boolean>(true);
+    const loading = ref<boolean>(false);
 
     //? Call le module vuex à chaque event input du composant searchBar
 
