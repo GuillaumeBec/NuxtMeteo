@@ -17,18 +17,18 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref, watch } from '@nuxtjs/composition-api';
-
+import { computed, defineComponent, PropType } from '@nuxtjs/composition-api';
+import { string, bool, number } from 'vue-types';
 export default defineComponent({
   name: 'SvgIcon',
   //TODO color handling
   props: {
-    src: { type: String as PropType<String>, required: true },
-    button: { type: Boolean as PropType<Boolean>, default: false },
-    size: { type: Number as PropType<Number> },
+    src: string().isRequired,
+    button: bool().def(false),
+    size: number(),
     colors: { type: [String, Object] as PropType<string | Record<string, boolean>> },
-    width: { type: Number },
-    height: { type: Number },
+    width: number(),
+    height: number(),
   },
   setup(props) {
     const calculatedWidth = computed<string | undefined>(() => {

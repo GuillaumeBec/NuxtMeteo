@@ -1,28 +1,43 @@
 <template>
-  <div class="relative flex items-center justify-center w-full h-full">
-    <div class="loading flex items-center justify-center h-full" :class="theme"> </div>
+  <div class="relative flex items-center justify-center w-full h-full" :style="getSpinnerStyle">
+    <div class="Loading / flex items-center justify-center w-full h-full" :class="theme"> </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-import { string } from 'vue-types';
+import { defineComponent, computed } from '@nuxtjs/composition-api';
+import { string, number } from 'vue-types';
 export default defineComponent({
   name: 'Spinner',
   props: {
     theme: string().def('main'),
+    width: string().def('100'),
+    height: string().def('100'),
+    size: number(),
   },
   setup(props) {
-    return {};
+    const calculatedWidth = computed<string | undefined>(() => {
+      if (props.width) return props.width + '%';
+      else if (props.height) return 'auto';
+      else if (props.size) return props.size + '%';
+      else return undefined;
+    });
+
+    const calculatedHeight = computed<string | undefined>(() => {
+      if (props.height) return props.height + '%';
+      else if (props.width) return 'auto';
+      else if (props.size) return props.size + '%';
+      else return undefined;
+    });
+    const getSpinnerStyle = { width: calculatedWidth.value, height: calculatedHeight.value };
+    return { getSpinnerStyle };
   },
 });
 </script>
 <style lang="postcss" scoped>
-.loading {
+.Loading {
   color: transparent;
   content: '';
-  width: 100%;
-  height: 100%;
   border: 5px solid;
   border-radius: 999999%;
   transform: rotate(0.16turn);

@@ -39,7 +39,7 @@ header {
     background: url('../../assets/icons/globe.svg') no-repeat;
     background-size: 80%;
     background-position: center;
-    @media (max-width: 550px) {
+    @media (max-width: 639px) {
       background-size: 50%;
       width: 65px;
     }
@@ -51,7 +51,7 @@ header {
     background: url('../../assets/icons/bigsun.svg') no-repeat;
     background-size: 80%;
     background-position: center;
-    @media (max-width: 550px) {
+    @media (max-width: 639px) {
       background-size: 50%;
       width: 65px;
     }

@@ -22,11 +22,13 @@ export default defineComponent({
     forecast: { type: Object as PropType<Forecast>, required: true },
   },
   setup(props) {
+    //? Les navigateurs n'ont pas tous le même niveau de compréhension des Objets Date, pour en générer un sur Firefox ou Safari, on doit remplacer les caractères spéciaux par un "/"
+
     const treatedInfos = computed(
       () =>
-        `Le ${getBasicDate(new Date(props.forecast.dt_txt))} ${getFormatedHoursAndMinutes(
-          new Date(props.forecast.dt_txt)
-        )}`
+        `Le ${getBasicDate(
+          new Date(props.forecast.dt_txt.replace(/-/g, '/'))
+        )} ${getFormatedHoursAndMinutes(new Date(props.forecast.dt_txt.replace(/-/g, '/')))}`
     );
 
     return { treatedInfos };

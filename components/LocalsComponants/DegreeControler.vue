@@ -1,8 +1,8 @@
 <template>
   <div
-    class=" Container / flex-nowrap md:rounded-2xl flex flex-row items-center justify-center rounded-md cursor-pointer"
+    class=" Container / flex-nowrap md:rounded-2xl flex flex-row items-center justify-center font-semibold rounded-md cursor-pointer"
     :class="{ isSelected: isSelected }"
-    @click.stop="updateDegree"
+    @click="updateDegree"
   >
     <span class="lg:text-xs p-2">{{ degree }} °</span>
   </div>
@@ -11,7 +11,7 @@
 <script lang="ts">
 import { defineComponent, PropType, computed } from '@nuxtjs/composition-api';
 import { degreesUnity } from '~/models';
-import { WeatherModule, useWeatherModule } from '~/vuex-modules';
+import { useWeatherModule } from '~/vuex-modules';
 
 export default defineComponent({
   name: 'DegreeControler',
@@ -41,11 +41,12 @@ export default defineComponent({
 .Container {
   border: 2px solid;
   --tw-border-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  border-color: var(--mainColor);
+  color: var(--mainColor);
 }
 
 .isSelected {
-  font-weight: bold;
+  font-weight: bolder;
   background-color: rgb(70, 157, 197);
   color: white;
   border-color: #ffffff;

@@ -40,12 +40,11 @@
           p-1
           border-2
           -md:h-[400px]
+          md:h-[200px]
         "
       >
         <CityInfos v-if="city" :city.sync="city" />
-        <div v-else-if="loading" class="flex items-center justify-center w-[33%] h-[46%]">
-          <Spinner />
-        </div>
+        <Spinner v-else-if="loading" width="20" height="42" />
         <div v-else>
           <p class="md:text-lg w-full h-full text-4xl italic text-center text-gray-500">
             Chercher une ville à travers le monde
@@ -67,7 +66,7 @@ export default defineComponent({
   head: { title: 'Nuxt-Meteo' },
   components: { SearchBar, Thumbnail, CityInfos },
   setup() {
-    const loading = ref<boolean>(false);
+    const loading = ref<boolean>(true);
 
     //? Call le module vuex à chaque event input du composant searchBar
 
